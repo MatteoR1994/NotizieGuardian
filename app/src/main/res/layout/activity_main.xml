@@ -30,11 +30,32 @@
             android:text="@string/buttonSearchString" />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/pageNumberText"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/pageNumberText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Pagina n°" />
+
+        <EditText
+            android:id="@+id/resultsForPageInput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/results_for_page_input_string"
+            android:inputType="number" />
+
+        <Button
+            android:id="@+id/setResultsForPageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/setResultsButtonText" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

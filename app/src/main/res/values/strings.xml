@@ -2,4 +2,6 @@
     <string name="app_name">Notizie Guardian</string>
     <string name="inputKeywordHintString">Inserire la parola chiave</string>
     <string name="buttonSearchString">CERCA</string>
+    <string name="results_for_page_input_string">Inserire il numero di risultati per pagina</string>
+    <string name="setResultsButtonText">IMPOSTA</string>
 </resources>

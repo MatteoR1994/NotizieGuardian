@@ -15,6 +15,7 @@ import java.lang.Exception
 class MainActivity : AppCompatActivity() {
     private var pageNumber = 1
     private var resultsList = mutableListOf<Data>()
+    private var pageSize = 10
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -38,6 +39,10 @@ class MainActivity : AppCompatActivity() {
             resultsList.clear()
             sendRequest()
         }
+
+        setResultsForPageButton.setOnClickListener {
+            pageSize = resultsForPageInput.text.toString().toInt()
+        }
     }
     fun startSearch(v: View) {
         pageNumberText.text = "Pagina n° $pageNumber"
@@ -46,7 +51,6 @@ class MainActivity : AppCompatActivity() {
     }
     fun getUrl(): String {
         val word = inputKeyword.text
-        val pageSize = 10
         val apiKey = "16e5cdc7-7521-43a6-877d-60b72fceec90"
         val url = "https://content.guardianapis.com/search?order-by=newest&page=$pageNumber&page-size=$pageSize&q=$word&api-key=$apiKey"
         return url
@@ -72,7 +76,7 @@ class MainActivity : AppCompatActivity() {
         val oggetto = JSONObject(s)
         val corpo = oggetto.getJSONObject("response")
         val indirizzi = corpo.getJSONArray("results")
-        for (i in 0..9){
+        for (i in 0 until indirizzi.length()){
             val item = indirizzi.getJSONObject(i)
             val webTitle = item.getString("webTitle")
             val webUrl = item.getString("webUrl")
