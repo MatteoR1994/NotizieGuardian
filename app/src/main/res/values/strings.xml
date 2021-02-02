@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Notizie Guardian</string>
+    <string name="inputKeywordHintString">Inserire la parola chiave</string>
+    <string name="buttonSearchString">CERCA</string>
+</resources>
