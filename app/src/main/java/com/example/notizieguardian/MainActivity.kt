@@ -21,17 +21,26 @@ class MainActivity : AppCompatActivity() {
 
         higherPageButton.setOnClickListener {
             pageNumber += 1
+            pageNumberText.text = "Pagina n° $pageNumber"
+            if(pageNumber >= 2) {
+                lowerPageButton.visibility = View.VISIBLE
+            }
             resultsList.clear()
             sendRequest()
         }
 
         lowerPageButton.setOnClickListener {
             pageNumber -= 1
+            pageNumberText.text = "Pagina n° $pageNumber"
+            if(pageNumber < 2) {
+                lowerPageButton.visibility = View.INVISIBLE
+            }
             resultsList.clear()
             sendRequest()
         }
     }
     fun startSearch(v: View) {
+        pageNumberText.text = "Pagina n° $pageNumber"
         resultsList = mutableListOf()
         sendRequest()
     }
@@ -39,9 +48,6 @@ class MainActivity : AppCompatActivity() {
         val word = inputKeyword.text
         val pageSize = 10
         val apiKey = "16e5cdc7-7521-43a6-877d-60b72fceec90"
-        //val url = "https://content.guardianapis.com/$word?page=$pageNumber&page-size=$pageSize&api-key=$apiKey"
-        //val url = "https://content.guardianapis.com/search?$word&api-key=$apiKey"
-        //val url = "https://content.guardianapis.com/search?q=$word&api-key=$apiKey"
         val url = "https://content.guardianapis.com/search?order-by=newest&page=$pageNumber&page-size=$pageSize&q=$word&api-key=$apiKey"
         return url
     }

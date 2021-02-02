@@ -31,9 +31,10 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/totalResultsField"
+        android:id="@+id/pageNumberText"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -46,6 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:visibility="invisible"
             app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
 
         <ImageView
